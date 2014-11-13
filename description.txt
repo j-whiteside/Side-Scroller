@@ -1,0 +1,22 @@
+Start Screen
+	The HMS Traveller has been ambushed by an unknown enemy.  The crew managed to escape the ship before it blew up,
+	but they are stranded in space.  Your objective is to collect as many 
+	survivors as possible, while avoiding the debris.
+	Colliding with debris will cause you to lose one of your three lives.
+	The game is over when you lose all your lives.
+	You get points for staying alive, and for collecting survivors
+
+	Good luck space cadet.
+
+
+End Screen
+	You lost!
+	
+	Distance: 
+	Survivors collected: 
+	Final score: 
+	
+	Play again (puts player back into game)
+	
+	Quit(brings player to start screen
+	
