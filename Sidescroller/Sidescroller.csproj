@@ -64,6 +64,9 @@
     <Content Include="assets\images\Arcade - Metal Slug 5 - Debris.png" />
     <Content Include="assets\images\atlas.png" />
     <Content Include="assets\images\cloud.png" />
+    <Content Include="assets\images\debris1.png" />
+    <Content Include="assets\images\debris2.png" />
+    <Content Include="assets\images\debris3.png" />
     <Content Include="assets\images\explosion.png" />
     <Content Include="assets\images\instructions.png" />
     <Content Include="assets\images\island.png" />

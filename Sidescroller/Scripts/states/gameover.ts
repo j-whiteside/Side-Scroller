@@ -57,12 +57,12 @@ module states {
         game.addChild(finalScore);
 
         // Display Try Again Button
-        playAgain = new objects.Button(stage.canvas.width / 2, 400, "playAgain");
+        playAgain = new objects.Button(410, 400, "playAgain");
         game.addChild(playAgain);
         playAgain.addEventListener("click", playAgainClicked);
 
         // Display Menu Button
-        quitButton = new objects.Button(stage.canvas.width / 2, 400, "quit");
+        quitButton = new objects.Button(610, 400, "quit");
         game.addChild(quitButton);
         quitButton.addEventListener("click", quitButtonClicked);
 

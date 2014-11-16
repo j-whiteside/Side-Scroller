@@ -2,17 +2,26 @@
 module objects {
     // Cloud class
     export class Cloud {
-        image: createjs.Sprite;
+        image: createjs.Bitmap;
         stage: createjs.Stage;
         game: createjs.Container;
         width: number;
         height: number;
         dy: number;
         dx: number;
-        constructor(stage: createjs.Stage, game: createjs.Container) {
+        debris: number;
+        constructor(stage: createjs.Stage, game: createjs.Container, debris:number) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Sprite(managers.Assets.atlas, "cloud");
+            if (debris == 0)
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("debris1"));
+            else if (debris == 1)
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("debris2"));
+            else
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("debris3"));
+
+            this.image.scaleX = 2;
+            this.image.scaleY = 2;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;

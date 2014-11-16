@@ -7,7 +7,7 @@
     constants.INSTRUCTIONS_STATE = 3;
 
     // Game Constants
-    constants.CLOUD_NUM = 3;
+    constants.CLOUD_NUM = 5;
     constants.LABEL_FONT = "40px Consolas";
     constants.PARAGRAPH_FONT = "15px Consolas";
     constants.LABEL_COLOUR = "#FFFF00";

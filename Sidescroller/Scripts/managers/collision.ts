@@ -44,11 +44,16 @@ module managers {
             p1.y = this.ship.image.y;
             p2.x = cloud.image.x;
             p2.y = cloud.image.y;
+
+            
             if (this.distance(p1, p2) < ((this.ship.height / 2) + (cloud.height / 2))) {
-                createjs.Sound.play("thunder");
-                this.scoreboard.lives -= 1;
-                this.scoreboard.multiplier = 1;
-                cloud.reset();
+                while (this.ship.invincible == false) {
+                    createjs.Sound.play("thunder");
+                    this.scoreboard.lives -= 1;
+                    this.scoreboard.multiplier = 1;
+                    cloud.reset();
+                    this.ship.noDamage();
+                }
             }
         }
 

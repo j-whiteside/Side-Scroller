@@ -12,6 +12,9 @@
         { id: "play", src: "assets/images/Play.png" },
         { id: "playAgain", src: "assets/images/playAgain.png" },
         { id: "instructions", src: "assets/images/instructions.png" },
+        { id: "debris1", src: "assets/images/debris1.png" },
+        { id: "debris2", src: "assets/images/debris2.png" },
+        { id: "debris3", src: "assets/images/debris3.png" },
         { id: "quit", src: "assets/images/quit.png" }
     ];
 
@@ -42,7 +45,7 @@
             [44, 3, 40, 32],
             [83, 3, 40, 32],
             [121, 3, 41, 32],
-            [161, 3, 40, 32],
+            [161, 3, 40, 31],
             [200, 7, 41, 21],
             [240, 7, 42, 24],
             [282, 4, 43, 29],

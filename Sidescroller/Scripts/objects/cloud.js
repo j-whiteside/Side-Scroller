@@ -3,10 +3,18 @@ var objects;
 (function (objects) {
     // Cloud class
     var Cloud = (function () {
-        function Cloud(stage, game) {
+        function Cloud(stage, game, debris) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Sprite(managers.Assets.atlas, "cloud");
+            if (debris == 0)
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("debris1"));
+            else if (debris == 1)
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("debris2"));
+            else
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("debris3"));
+
+            this.image.scaleX = 2;
+            this.image.scaleY = 2;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;

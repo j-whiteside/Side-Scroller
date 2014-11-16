@@ -47,7 +47,7 @@ var states;
         stage.cursor = "none";
 
         for (var count = 0; count < constants.CLOUD_NUM; count++) {
-            clouds[count] = new objects.Cloud(stage, game);
+            clouds[count] = new objects.Cloud(stage, game, count);
         }
 
         // Display Scoreboard

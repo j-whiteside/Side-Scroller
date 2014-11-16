@@ -12,6 +12,8 @@ module objects {
             this.stage = stage;
             this.game = game;
             this.image = new createjs.Bitmap(managers.Assets.loader.getResult("survivor"));
+            this.image.scaleX = 0.8;
+            this.image.scaleY = 0.8;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;
