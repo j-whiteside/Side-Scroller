@@ -1,8 +1,9 @@
 ﻿/// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
-/// <reference path="objects/cloud.ts" />
+/// <reference path="objects/debris.ts" />
 /// <reference path="objects/survivor.ts" />
 /// <reference path="objects/stars.ts" />
+/// <reference path="objects/shipwreck.ts" />
 /// <reference path="objects/space.ts" />
 /// <reference path="objects/ship.ts" />
 /// <reference path="objects/scoreboard.ts" />
@@ -22,7 +23,7 @@ var game;
 var space;
 var ship;
 var survivor;
-var clouds = [];
+var debris = [];
 var scoreboard;
 
 var collision;

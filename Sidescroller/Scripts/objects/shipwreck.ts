@@ -1,39 +1,41 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Ship Class
-    export class Ship {
-        image: createjs.Sprite;
+    // Shipwreck Class
+    export class Shipwreck {
+        image: createjs.Bitmap;
         stage: createjs.Stage;
         game: createjs.Container;
-        engineSound: createjs.SoundInstance;
-        width: number;
         height: number;
-        invincible: boolean;
+        width: number;
+        dx: number;
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Sprite(managers.Assets.shipAtlas, "straight");
-            this.image.x = 50;
-            this.image.scaleX = 2;
-            this.image.scaleY = 2;
+            this.image = new createjs.Bitmap(managers.Assets.loader.getResult("shipwreck"));
+            this.image.rotation = 90;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;
+            this.image.scaleY = 4;
+            this.image.scaleX = 4;
             this.image.regY = this.height / 2;
-            this.invincible = false;
-            this.image.alpha = 1;
+            this.image.y = this.stage.canvas.height / 2;
+
+            this.dx = -5;
+
             game.addChild(this.image);
         }
 
-        
-
         update() {
-            this.image.y = this.stage.mouseY;
+            this.image.x += this.dx;
+            if (this.image.x < -10) {
+                this.destroy();
+            }
         }
 
         destroy() {
-            this.engineSound.stop();
             game.removeChild(this.image);
         }
     }
-} 
+
+}

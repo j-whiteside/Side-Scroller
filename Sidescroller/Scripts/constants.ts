@@ -8,7 +8,7 @@
     
 
     // Game Constants
-    export var CLOUD_NUM: number = 5;
+    export var DEBRIS_NUM: number = 5;
     export var LABEL_FONT = "40px Consolas";
     export var PARAGRAPH_FONT = "15px Consolas";
     export var LABEL_COLOUR = "#FFFF00";

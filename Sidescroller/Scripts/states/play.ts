@@ -1,9 +1,10 @@
 ﻿/// <reference path="../objects/button.ts" />
-/// <reference path="../objects/cloud.ts" />
+/// <reference path="../objects/debris.ts" />
 /// <reference path="../objects/survivor.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/stars.ts" />
 /// <reference path="../objects/space.ts" />
+/// <reference path="../objects/shipwreck.ts" />
 /// <reference path="../objects/ship.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
@@ -15,8 +16,8 @@ module states {
         this.scoreboard.score += (this.scoreboard.multiplier *  1);
 
 
-        for (var count = 0; count < constants.CLOUD_NUM; count++) {
-            clouds[count].update();
+        for (var count = 0; count < constants.DEBRIS_NUM; count++) {
+            debris[count].update();
         }
 
         collision.update();
@@ -41,20 +42,22 @@ module states {
         space = new objects.Space(stage, game);
         survivor = new objects.Survivor(stage, game);
         ship = new objects.Ship(stage, game);
+        
+        
 
         // Show Cursor
         stage.cursor = "none";
 
-        // Create multiple clouds
-        for (var count = 0; count < constants.CLOUD_NUM; count++) {
-            clouds[count] = new objects.Cloud(stage, game, count);
+        // Create multiple DEBRISs
+        for (var count = 0; count < constants.DEBRIS_NUM; count++) {
+            debris[count] = new objects.Debris(stage, game, count);
         }
 
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(ship, survivor, clouds, scoreboard);
+        collision = new managers.Collision(ship, survivor, debris, scoreboard);
 
         stage.addChild(game);
     }

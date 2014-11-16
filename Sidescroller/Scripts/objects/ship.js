@@ -17,23 +17,7 @@ var objects;
             this.invincible = false;
             this.image.alpha = 1;
             game.addChild(this.image);
-            this.engineSound = createjs.Sound.play('engine', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
         }
-        Ship.prototype.noDamage = function () {
-            this.invincible = true;
-            for (var i = 0; i < 6; i++) {
-                setTimeout(this.invincibilityFlash, 500);
-            }
-            this.invincible = false;
-        };
-
-        Ship.prototype.invincibilityFlash = function () {
-            if (this.image.alpha == 1)
-                this.image.alpha = 0.5;
-            else
-                this.image.alpha = 1;
-        };
-
         Ship.prototype.update = function () {
             this.image.y = this.stage.mouseY;
         };

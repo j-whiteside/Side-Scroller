@@ -1,4 +1,4 @@
-﻿/// <reference path="../objects/cloud.ts" />
+﻿/// <reference path="../objects/debris.ts" />
 /// <reference path="../objects/survivor.ts" />
 /// <reference path="../objects/ship.ts" />
 /// <reference path="../objects/scoreboard.ts" />
@@ -9,13 +9,13 @@ module managers {
         // class variables
         private ship: objects.Ship;
         private survivor: objects.Survivor;
-        private clouds = [];
+        private debris = [];
         private scoreboard: objects.Scoreboard;
 
-        constructor(ship: objects.Ship, survivor: objects.Survivor, clouds, scoreboard: objects.Scoreboard) {
+        constructor(ship: objects.Ship, survivor: objects.Survivor, debris, scoreboard: objects.Scoreboard) {
             this.ship = ship;
             this.survivor = survivor;
-            this.clouds = clouds;
+            this.debris = debris;
             this.scoreboard = scoreboard;
         }
 
@@ -36,25 +36,22 @@ module managers {
             return result;
         }
 
-        // check collision between ship and any cloud object
-        private shipAndCloud(cloud: objects.Cloud) {
+        // check collision between ship and any Debris object
+        private shipAndDebris(Debris: objects.Debris) {
             var p1: createjs.Point = new createjs.Point();
             var p2: createjs.Point = new createjs.Point();
             p1.x = this.ship.image.x;
             p1.y = this.ship.image.y;
-            p2.x = cloud.image.x;
-            p2.y = cloud.image.y;
+            p2.x = Debris.image.x;
+            p2.y = Debris.image.y;
 
             
-            if (this.distance(p1, p2) < ((this.ship.height / 2) + (cloud.height / 2))) {
-                while (this.ship.invincible == false) {
-                    createjs.Sound.play("thunder");
+            if (this.distance(p1, p2) < ((this.ship.height / 2) + (Debris.height / 2))) {
+                    createjs.Sound.play("collision");
                     this.scoreboard.lives -= 1;
                     this.scoreboard.multiplier = 1;
-                    cloud.reset();
-                    this.ship.noDamage();
+                    Debris.reset();
                 }
-            }
         }
 
         // check collision between ship and survivor
@@ -66,18 +63,20 @@ module managers {
             p2.x = this.survivor.image.x;
             p2.y = this.survivor.image.y;
             if (this.distance(p1, p2) < ((this.ship.height / 2) + (this.survivor.height / 2))) {
-                createjs.Sound.play("yay");
+                createjs.Sound.play("points");
                 this.scoreboard.score += (this.scoreboard.multiplier * 100);
                 this.scoreboard.survivors += 1;
                 this.scoreboard.multiplier += 0.5;
+                if (this.scoreboard.multiplier > this.scoreboard.highestMultiplier)
+                    this.scoreboard.highestMultiplier = this.scoreboard.multiplier;
                 this.survivor.reset();
             }
         }
 
         // Utility Function to Check Collisions
         update() {
-            for (var count = 0; count < constants.CLOUD_NUM; count++) {
-                this.shipAndCloud(this.clouds[count]);
+            for (var count = 0; count < constants.DEBRIS_NUM; count++) {
+                this.shipAndDebris(this.debris[count]);
             }
             this.shipAndsurvivor();
         }

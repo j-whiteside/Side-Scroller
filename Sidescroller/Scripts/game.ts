@@ -1,8 +1,9 @@
 ﻿/// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
-/// <reference path="objects/cloud.ts" />
+/// <reference path="objects/debris.ts" />
 /// <reference path="objects/survivor.ts" />
 /// <reference path="objects/stars.ts" />
+/// <reference path="objects/shipwreck.ts" />
 /// <reference path="objects/space.ts" />
 /// <reference path="objects/ship.ts" />
 /// <reference path="objects/scoreboard.ts" />
@@ -24,7 +25,7 @@ var game: createjs.Container;
 var space: objects.Space;
 var ship: objects.Ship;
 var survivor: objects.Survivor;
-var clouds = []; // Clouds array;
+var debris = []; // Debris array;
 var scoreboard: objects.Scoreboard;
 
 var collision: managers.Collision;

@@ -10,6 +10,7 @@
             this.score = 0;
             this.survivors = 0;
             this.multiplier = 1;
+            this.highestMultiplier = 1;
             this.label = new createjs.Text(this.labelText, constants.LABEL_FONT, constants.LABEL_COLOUR);
             this.update();
             this.width = this.label.getBounds().width;
