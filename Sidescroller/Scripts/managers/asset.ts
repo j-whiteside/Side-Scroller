@@ -1,12 +1,12 @@
 ﻿module managers {
     // Image and Sound Manifest;
     var assetManifest = [
-        { id: "loading", src: "assets/images/loading.jpg" },
         { id: "space", src: "assets/images/space.gif" },
         { id: "stars", src: "assets/images/stars.png" },
         { id: "survivor", src: "assets/images/survivor.png" },
-        { id: "engine", src: "assets/sounds/engine.ogg" },
-        { id: "thunder", src: "assets/sounds/thunder.ogg" },
+        { id: "collision", src: "assets/sounds/explosion.wav" },
+        { id: "music", src: "assets/sounds/Tron.wav" },
+        { id: "points", src: "assets/sounds/point.wav" },
         { id: "title", src: "assets/images/SPACE-CADET.png" },
         { id: "play", src: "assets/images/Play.png" },
         { id: "playAgain", src: "assets/images/playAgain.png" },
@@ -14,28 +14,10 @@
         { id: "debris1", src: "assets/images/debris1.png" },
         { id: "debris2", src: "assets/images/debris2.png" },
         { id: "debris3", src: "assets/images/debris3.png" },
+        { id: "shipwreck", src: "assets/images/shipwreckClear.png" },
         { id: "quit", src: "assets/images/quit.png" }
     ];
 
-    // SpriteSheet Data Object
-    var spriteSheetData = {
-        "images": ["assets/images/atlas.png"],
-        "frames": [
-            [2, 2, 226, 178],
-            [230, 2, 211, 69],
-            [443, 69, 62, 63],
-            [443, 2, 65, 65],
-            [230, 73, 211, 69],
-            [230, 144, 211, 69]
-        ],
-        "animations": {
-            "cloud": [0],
-            "instructionsButton": [1],
-            "ship": [3],
-            "playButton": [4],
-            "tryAgainButton": [5]
-        }
-    }
 
     var shipSpriteSheet = {
         "images": ["assets/images/Arcade%20-%20Gradius%20IV%20Fukkatsu%20-%20Vic%20Viper.png"],
@@ -70,7 +52,6 @@
         public static data;
 
         public static loader;
-        public static atlas: createjs.SpriteSheet;
         public static shipAtlas: createjs.SpriteSheet;
 
         public static init() {
@@ -78,7 +59,6 @@
             this.loader = new createjs.LoadQueue();
             this.loader.installPlugin(createjs.Sound);
             this.loader.loadManifest(assetManifest);
-            this.atlas = new createjs.SpriteSheet(spriteSheetData);
             this.shipAtlas = new createjs.SpriteSheet(shipSpriteSheet);
         }
 

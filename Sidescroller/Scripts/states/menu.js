@@ -4,7 +4,8 @@
 /// <reference path="../objects/stars.ts" />
 /// <reference path="../objects/space.ts" />
 /// <reference path="../objects/survivor.ts" />
-/// <reference path="../objects/cloud.ts" />
+/// <reference path="../objects/debris.ts" />
+/// <reference path="../objects/shipwreck.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/label.ts" />
 var states;

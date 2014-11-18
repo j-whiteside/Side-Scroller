@@ -1,8 +1,9 @@
 ﻿/// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
-/// <reference path="objects/cloud.ts" />
+/// <reference path="objects/debris.ts" />
 /// <reference path="objects/survivor.ts" />
 /// <reference path="objects/stars.ts" />
+/// <reference path="objects/shipwreck.ts" />
 /// <reference path="objects/space.ts" />
 /// <reference path="objects/ship.ts" />
 /// <reference path="objects/scoreboard.ts" />
@@ -24,7 +25,7 @@ var game: createjs.Container;
 var space: objects.Space;
 var ship: objects.Ship;
 var survivor: objects.Survivor;
-var clouds = []; // Clouds array;
+var debris = []; // Debris array;
 var scoreboard: objects.Scoreboard;
 
 var collision: managers.Collision;
@@ -37,6 +38,8 @@ var quitButton: objects.Button;
 var currentState: number;
 var currentStateFunction;
 
+var myAudio = new Audio('assets/sounds/Tron.wav');
+
 // Preload function - Loads Assets and initializes game;
 function preload(): void {
     managers.Assets.init();
@@ -46,6 +49,9 @@ function preload(): void {
 // init called after Assets have been loaded.
 function init(): void {
     stage = new createjs.Stage(document.getElementById("canvas"));
+    myAudio.play();
+    
+    //createjs.Sound.play("music");
     stage.enableMouseOver(30);
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
@@ -65,6 +71,10 @@ function optimizeForMobile() {
 // Game Loop
 function gameLoop(event): void {
     currentStateFunction();
+    myAudio.addEventListener('ended', function () {
+        this.currentTime = 0;
+        this.play();
+    }, false);
     stage.update();
 }
 

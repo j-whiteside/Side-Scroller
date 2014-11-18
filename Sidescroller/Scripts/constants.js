@@ -7,10 +7,14 @@
     constants.INSTRUCTIONS_STATE = 3;
 
     // Game Constants
-    constants.CLOUD_NUM = 5;
+    constants.DEBRIS_NUM = 5;
     constants.LABEL_FONT = "40px Consolas";
     constants.PARAGRAPH_FONT = "15px Consolas";
     constants.LABEL_COLOUR = "#FFFF00";
     constants.SHIP_LIVES = 3;
+
+    constants.DIFFICULTY_TICKER = 0;
+    constants.DIFFICULTY_LEVEL = 4;
+    constants.SURVIVOR_NUM = 1;
 })(constants || (constants = {}));
 //# sourceMappingURL=constants.js.map
